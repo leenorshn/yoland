@@ -60,7 +60,7 @@ export default function SortieTable() {
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200 bg-white">
-                        {sorties.map((op, i) => (
+                        {sorties.sort((a, b) => b.date.seconds - a.date.seconds).map((op, i) => (
                             <tr key={i}>
                                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
 

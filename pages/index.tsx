@@ -16,7 +16,7 @@ export default function Home() {
 
       <main className='max-w-5xl mx-auto bg-white'>
         <div className='flex items-center justify-between '>
-          <StatWidget listOps={[]} />
+          <StatWidget />
           <Link href={"/payment/entree"}>
             <button className='text-white bg-blue-600 rounded-md px-10 py-2'>Nouvelle facturation</button>
           </Link>
