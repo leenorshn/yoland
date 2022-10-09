@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { signOut, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebase';
 export const AuthContext = createContext(null);
 
@@ -21,6 +21,10 @@ export function AuthProvider({ children }) {
         setCurrentUser(resp.user);
         return resp;
     }
+
+
+   
+
 
     async function logout() {
         setCurrentUser(null);
