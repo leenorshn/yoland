@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FormSection from "../../components/FormSection";
 
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { collection, addDoc, Timestamp, setDoc, doc } from "firebase/firestore";
 import { db } from "../../utils/firebase";
 import { useRouter } from "next/router";
 export default function Example() {
@@ -33,6 +33,14 @@ export default function Example() {
                     { libel: "Medicaments", value: form.medic },
                     { libel: "Autres charges", value: form.other }
                 ]
+            });
+
+            const docRefo = await setDoc(doc(db, "malades", identity.phone), {
+                date: Timestamp.now(),
+                fiche: identity.fiche,
+                name: identity.name,
+                phone: identity.phone,
+                address: identity.address,
             });
             console.log("Document written with ID: ", docRef.id);
             router.push("/")
